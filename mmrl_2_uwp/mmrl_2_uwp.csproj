@@ -103,6 +103,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FusionData.cs" />
+    <Compile Include="MetaWearBoardsManager.cs" />
+    <Compile Include="MetaWearScanner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
