@@ -186,14 +186,14 @@ namespace mmrl_2_uwp
             {
                 Console.WriteLine($"Quaternion = {data.Value<Quaternion>()}");
             }));
-            await Task.Delay(1500);
+            await Task.Delay(15000);
 
             await fusionModule.LinearAcceleration.AddRouteAsync(source => source.Stream(data =>
             {
                 Console.WriteLine($"Acceleration = {data.Value<Acceleration>()}");
             }));
             // Board needs some time for BLE communication.
-            await Task.Delay(1500);
+            await Task.Delay(15000);
 
             fusionModule.Quaternion.Start();
             await Task.Delay(500);

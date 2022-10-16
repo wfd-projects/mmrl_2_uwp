@@ -44,9 +44,8 @@ namespace mmrl_2_uwp
         ///  * Speech-command to trigger arm calibration.
         ///  * Button that can be pressed an after a countdown of, e.g., 10 seconds during which there is enough time to get the arm into posture, calibration is started.
         /// 
-        /// This is a test if it's possible anyways to stream sensor fusion data and acceleration data simultaneously.
-        /// I tried to reduce BLE bandwidth of the accelerometer and it works :)
-        /// However, we need to evaluate if the reduced bandwidth has negative effects when controlling objects in Unity.
+        /// The .NET app can avoid this problem by waiting after calling AddRouteAsync(). However, this does not work reliably with UWP apps anymore.
+        /// I could get both async streams to work while debuggung but not reliably implement it :(
         /// </summary>
         public static async Task ScenarioStreamFusion_double(MetaWearBoardsManager boardsManager, IMetaWearBoard board)
         {
@@ -103,8 +102,8 @@ namespace mmrl_2_uwp
                 // TODO
 
                 /***** Stream sensor fusion data *****/
-                //await ScenarioStreamFusion(boardsManager, board);
-                await ScenarioStreamFusion_double(boardsManager, board);
+                await ScenarioStreamFusion(boardsManager, board);
+                //await ScenarioStreamFusion_double(boardsManager, board);
 
                 /***** Stream accelerometer *****/
                 //await ScenarioStreamAcceleration(boardsManager, board);
